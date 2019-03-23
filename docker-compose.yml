@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+  web:
+    container_name: rserver
+    image: kadriand/rserver-sybil:latest
+    environment:
+      - RSERVER_DATA=/rserver-data
+    working_dir: /home/rstudio
+    entrypoint:
+      - /usr/lib/rstudio-server/bin/rserver
+    command:
+      - --server-daemonize=0
+      - --server-app-armor-enabled=0
+    volumes:
+      - type: volume
+        source: rserver-vol
+        target: /rserver-data
+        volume:
+          external: false
+      - type: bind
+        source: ./
+        target: /rserver
+    ports:
+      - "8787:8787"
+volumes:
+  rserver-vol:
+    external: false
