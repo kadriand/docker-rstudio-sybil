@@ -22,7 +22,7 @@ services:
         source: ./
         target: /rserver
     ports:
-      - "8787:8787"
+      - "8765:8787"
 volumes:
   rserver-vol:
     external: false
