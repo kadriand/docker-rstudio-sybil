@@ -1,0 +1,20 @@
+server {
+    listen 80;
+    server_name 0.0.0.0;
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+
+    location ^~ /static {
+        alias /home/adrian/docker/ANSEP/assets;
+        try_files $uri $uri/ @secondStatic;
+    }
+
+    location @secondStatic {
+        root /home/adrian/docker/ANSEP/assets/bundles;
+    }
+
+    location / {
+        include proxy_params;
+        proxy_pass http://127.0.0.1:8000;
+    }
+}
