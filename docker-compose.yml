@@ -3,7 +3,7 @@ version: '3.7'
 services:
   web:
     container_name: rserver
-    image: kadriand/ansep-nginx:latest
+    image: kadriand/rserver-sybil:latest
     environment:
       - RSERVER_DATA=/rserver-data
     working_dir: /home/rstudio
