@@ -4,9 +4,9 @@ server {
     client_max_body_size 25M;
 
     location = /favicon.ico {
-        alias /ansep/assets/bundles/static/brand/ansep.ico;
         access_log off;
         log_not_found off;
+        alias /ansep/assets/bundles/static/brand/ansep.ico;
      }
 
     location ^~ /static {
